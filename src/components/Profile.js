@@ -1,7 +1,10 @@
 import { Component }from "react";
 
+
 class Profile extends Component{
     render(){
+      // const user = this.props.user;
+      const {user} = this.props;
         return(
             <div className="col-lg-3 col-md-4 pd-left-none no-pd">
                     <div className="main-left-sidebar no-margin">
@@ -9,22 +12,22 @@ class Profile extends Component{
                         <div className="user-profile">
                           <div className="username-dt">
                             <div className="usr-pic">
-                              <img src="./images/sudip-pic.jpg" alt="" />
+                              <img src={"./images/" + user.username + ".jpg"} alt="" />
                             </div>
                           </div>
                           <div className="user-specs">
-                            <h3>Saroj Shakya</h3>
-                            <span>Research Head</span>
+                            <h3>{user.fullname}</h3>
+                            <span>{user.title}</span>
                           </div>
                         </div>
                         <ul className="user-fw-status">
                           <li>
                             <h4>Following</h4>
-                            <span>34</span>
+                            <span>{user.followings.length}</span>
                           </li>
                           <li>
                             <h4>Followers</h4>
-                            <span>155</span>
+                            <span>{user.followers.length}</span>
                           </li>
                           <li>
                             <a href="./my-profile.html" title="">View Profile</a>
@@ -48,7 +51,7 @@ class Profile extends Component{
                           <div className="suggestion-usd">
                             <img src="./images/s2.png" alt="" />
                             <div className="sgt-text">
-                              <h4>Saroj Shakya</h4>
+                              <h4>Sudip Timalsina</h4>
                               <span>PHP Developer</span>
                             </div>
                             <span><i className="la la-plus"></i></span>
@@ -80,7 +83,7 @@ class Profile extends Component{
                           <div className="suggestion-usd">
                             <img src="./images/s6.png" alt="" />
                             <div className="sgt-text">
-                              <h4>Saroj Shakya</h4>
+                              <h4>Sudip Timalsina</h4>
                               <span>PHP Developer</span>
                             </div>
                             <span><i className="la la-plus"></i></span>
