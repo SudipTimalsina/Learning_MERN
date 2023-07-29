@@ -4,6 +4,7 @@ import { Component }from "react";
 class Profile extends Component{
     render(){
       // const user = this.props.user;
+      // both the command used above and below do the same work
       const {user} = this.props;
         return(
             <div className="col-lg-3 col-md-4 pd-left-none no-pd">

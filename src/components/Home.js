@@ -5,6 +5,7 @@ import Post from "./Post";
 import Postbar from "./Postbar";
 import Tagsection from "./Tagsection";
 
+
 const userData={
   email: "test@test.com",
   username: "sudip",
@@ -21,18 +22,55 @@ const userData={
 
 
 class Home extends Component {
+  constructor(){
+    super();
+    this.state={
+      user: {},
+    };
+  }
+  componentDidMount() {
+    const that =this;
+    fetch("http://localhost:5000/api/v1/user")
+    .then((resp) => resp.json())
+    .then((data) => {
+      that.setState({user : data});
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+
+    fetch("http://localhost:5000/api/v1/user",{
+      method : "POST",
+      header : {
+        "content-Type" : "application/json"
+      },})
+    .then((resp) => resp.json())
+    .then((data) => {
+      console.log(data);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+  }
     render() {
-        return <div className="wrapper">
-        <Header user={userData}/>
+      const user = {...this.state.user};
+      // constructor {user} = this.state
+      if(!Object.keys(user).length)
+        {
+        return <div></div>;
+        }
+        return (
+        <div className="wrapper">
+        <Header user={user}/>
         <main>
           <div className="main-section">
             <div className="container">
               <div className="main-section-data">
                 <div className="row">
-                  <Profile user={userData}/>
+                  <Profile user={user}/>
                   <div className="col-lg-6 col-md-8 no-pd">
                     <div className="main-ws-sec">
-                      <Postbar user={userData}/>
+                      <Postbar user={user}/>
                       <Post/>
                     </div>
                   </div>
@@ -642,8 +680,10 @@ class Home extends Component {
           </div>
         </div>
       </div>
+      )
     }
 }
+
 
 
 export default Home;
