@@ -6,54 +6,55 @@ import Postbar from "./Postbar";
 import Tagsection from "./Tagsection";
 
 
-const userData={
-  email: "test@test.com",
-  username: "sudip",
-  fullname: "Sudip Timalsina",
-  title: "Software Developer",
-  skills: ["JS","PHP","JAVA"],
-  address: "Kathmandu, Nepal",
-  job_type: "Full Time",
-  id:1,
-  is_active: true,
-  followers: ["username123","user234","user543"],
-  followings: ["username123","user234","user543","user555"],
-};
+// const userData={
+//   email: "test@test.com",
+//   username: "sudip",
+//   fullname: "Sudip Timalsina",
+//   title: "Software Developer",
+//   skills: ["JS","PHP","JAVA"],
+//   address: "Kathmandu, Nepal",
+//   job_type: "Full Time",
+//   id:1,
+//   is_active: true,
+//   followers: ["username123","user234","user543"],
+//   followings: ["username123","user234","user543","user555"],
+// };
 
 
 class Home extends Component {
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state={
       user: {},
     };
   }
   componentDidMount() {
-    const that =this;
+    // const that =this;
     fetch("http://localhost:5000/api/v1/user")
     .then((resp) => resp.json())
     .then((data) => {
-      that.setState({user : data});
+      this.setState({user : data});
     })
     .catch((err) => {
       console.error(err);
     });
 
-    fetch("http://localhost:5000/api/v1/user",{
-      method : "POST",
-      header : {
-        "content-Type" : "application/json"
-      },})
-    .then((resp) => resp.json())
-    .then((data) => {
-      console.log(data);
-    })
-    .catch((err) => {
-      console.error(err);
-    });
+    // fetch("http://localhost:5000/api/v1/user",{
+    //   method : "POST",
+    //   header : {
+    //     "content-Type" : "application/json"
+    //   },})
+    // .then((resp) => resp.json())
+    // .then((data) => {
+    //   console.log(data);
+    // })
+    // .catch((err) => {
+    //   console.error(err);
+    // });
   }
     render() {
-      const user = {...this.state.user};
+      const user = this.state.user;
+      // const user = {...this.state.user};
       // constructor {user} = this.state
       if(!Object.keys(user).length)
         {
