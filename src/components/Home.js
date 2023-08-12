@@ -22,40 +22,40 @@ import Tagsection from "./Tagsection";
 
 
 class Home extends Component {
-  constructor(props){
-    super(props);
-    this.state={
-      user: {},
-    };
-  }
-  componentDidMount() {
-    // const that =this;
-    fetch("http://localhost:5000/api/v1/user")
-    .then((resp) => resp.json())
-    .then((data) => {
-      this.setState({user : data});
-    })
-    .catch((err) => {
-      console.error(err);
-    });
+  // constructor(props){
+  //   super(props);
+  //   this.state={
+  //     user: {},
+  //   };
+  // }
+  // componentDidMount() {
+  //   // const that =this;
+  //   fetch("http://localhost:5000/api/v1/user")
+  //   .then((resp) => resp.json())
+  //   .then((data) => {
+  //     this.setState({user : data});
+  //   })
+  //   .catch((err) => {
+  //     console.error(err);
+  //   });
 
-    // fetch("http://localhost:5000/api/v1/user",{
-    //   method : "POST",
-    //   header : {
-    //     "content-Type" : "application/json"
-    //   },})
-    // .then((resp) => resp.json())
-    // .then((data) => {
-    //   console.log(data);
-    // })
-    // .catch((err) => {
-    //   console.error(err);
-    // });
-  }
+  //   // fetch("http://localhost:5000/api/v1/user",{
+  //   //   method : "POST",
+  //   //   header : {
+  //   //     "content-Type" : "application/json"
+  //   //   },})
+  //   // .then((resp) => resp.json())
+  //   // .then((data) => {
+  //   //   console.log(data);
+  //   // })
+  //   // .catch((err) => {
+  //   //   console.error(err);
+  //   // });
+  // }
     render() {
-      const user = this.state.user;
-      // const user = {...this.state.user};
-      // constructor {user} = this.state
+      const user = this.props.user;
+      // const user = {...this.props.user};
+      // constructor {user} = this.props
       if(!Object.keys(user).length)
         {
         return <div></div>;
