@@ -5,7 +5,7 @@ class Login extends Component {
     super();
     this.handleSignInClick = this.handleSignInClick.bind(this);
   }
-  handleSignInClick(event){
+  handleSignInClick(evnt){
     const formElem = document.getElementById("login-form");
     // get values from the input filed
     const username = formElem.querySelector("#username").value;
