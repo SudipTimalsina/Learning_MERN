@@ -3,6 +3,7 @@ import { Component } from "react";
 class Header extends Component
 {
     render(){
+      const {user} = this.props;
         return(
         <header>
             <div className="container">
@@ -167,8 +168,8 @@ class Header extends Component
                 </div>
                 <div className="user-account">
                   <div className="user-info">
-                    <img src="./images/user.jpeg" alt="" />
-                    <a href="./index.html#" title="">Saroj</a>
+                    <img src={"./images/"+user.username+".jpg" }alt="" />
+                    <a href="./index.html#" title="">{user.username}</a>
                     <i className="la la-sort-down"></i>
                   </div>
                   <div className="user-account-settingss" id="users">

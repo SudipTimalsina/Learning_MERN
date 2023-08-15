@@ -6,20 +6,73 @@ import Postbar from "./Postbar";
 import Tagsection from "./Tagsection";
 
 
+// const userData={
+//   email: "test@test.com",
+//   username: "sudip",
+//   fullname: "Sudip Timalsina",
+//   title: "Software Developer",
+//   skills: ["JS","PHP","JAVA"],
+//   address: "Kathmandu, Nepal",
+//   job_type: "Full Time",
+//   id:1,
+//   is_active: true,
+//   followers: ["username123","user234","user543"],
+//   followings: ["username123","user234","user543","user555"],
+// };
+
+
 class Home extends Component {
+  // constructor(props){
+  //   super(props);
+  //   this.state={
+  //     user: {},
+  //   };
+  // }
+  // componentDidMount() {
+  //   // const that =this;
+  //   fetch("http://localhost:5000/api/v1/user")
+  //   .then((resp) => resp.json())
+  //   .then((data) => {
+  //     this.setState({user : data});
+  //   })
+  //   .catch((err) => {
+  //     console.error(err);
+  //   });
+
+  //   // fetch("http://localhost:5000/api/v1/user",{
+  //   //   method : "POST",
+  //   //   header : {
+  //   //     "content-Type" : "application/json"
+  //   //   },})
+  //   // .then((resp) => resp.json())
+  //   // .then((data) => {
+  //   //   console.log(data);
+  //   // })
+  //   // .catch((err) => {
+  //   //   console.error(err);
+  //   // });
+  // }
     render() {
-        return <div className="wrapper">
-        <Header></Header>
+      const user = this.props.user;
+      // const user = {...this.props.user};
+      // constructor {user} = this.props
+      if(!Object.keys(user).length)
+        {
+        return <div></div>;
+        }
+        return (
+        <div className="wrapper">
+        <Header user={user}/>
         <main>
           <div className="main-section">
             <div className="container">
               <div className="main-section-data">
                 <div className="row">
-                  <Profile></Profile>
+                  <Profile user={user}/>
                   <div className="col-lg-6 col-md-8 no-pd">
                     <div className="main-ws-sec">
-                      <Postbar></Postbar>
-                     <Post></Post>
+                      <Postbar user={user}/>
+                      <Post/>
                     </div>
                   </div>
                   <div className="col-lg-3 pd-right-none no-pd">
@@ -248,66 +301,6 @@ class Home extends Component {
                         <input type="text" name="price1" placeholder="Price" />
                         <i className="la la-dollar"></i>
                       </div>
-                    </div>
-                  </div>
-                  <div className="col-lg-12">
-                    <textarea
-                      name="description"
-                      placeholder="Description"
-                    ></textarea>
-                  </div>
-                  <div className="col-lg-12">
-                    <ul>
-                      <li>
-                        <button className="active" type="submit" value="post">
-                          Post
-                        </button>
-                      </li>
-                      <li><a href="./index.html#" title="">Cancel</a></li>
-                    </ul>
-                  </div>
-                </div>
-              </form>
-            </div>
-            <a href="./index.html#" title=""
-              ><i className="la la-times-circle-o"></i
-            ></a>
-          </div>
-        </div>
-        <div className="post-popup job_post">
-          <div className="post-project">
-            <h3>Post a job</h3>
-            <div className="post-project-fields">
-              <form>
-                <div className="row">
-                  <div className="col-lg-12">
-                    <input type="text" name="title" placeholder="Title" />
-                  </div>
-                  <div className="col-lg-12">
-                    <div className="inp-field">
-                      <select>
-                        <option>Category</option>
-                        <option>Category 1</option>
-                        <option>Category 2</option>
-                        <option>Category 3</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div className="col-lg-12">
-                    <input type="text" name="skills" placeholder="Skills" />
-                  </div>
-                  <div className="col-lg-6">
-                    <div className="price-br">
-                      <input type="text" name="price1" placeholder="Price" />
-                      <i className="la la-dollar"></i>
-                    </div>
-                  </div>
-                  <div className="col-lg-6">
-                    <div className="inp-field">
-                      <select>
-                        <option>Full Time</option>
-                        <option>Half time</option>
-                      </select>
                     </div>
                   </div>
                   <div className="col-lg-12">
@@ -628,8 +621,10 @@ class Home extends Component {
           </div>
         </div>
       </div>
+      )
     }
 }
+
 
 
 export default Home;
