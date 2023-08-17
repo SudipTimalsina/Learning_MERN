@@ -1,8 +1,9 @@
 // import logo from './logo.svg';
 // import './App.css';
 import { Component } from 'react';
-import Login from './components/Login';
-import Home from './components/Home';
+import Home from './components/Pages/Home';
+import Login from './components/Pages/Login';
+
 
 class App extends Component {
   constructor() {

@@ -1,7 +1,4 @@
-import { Component } from "react";
-
-class TagsSection extends Component {
-  render() {
+const  Link = () => {
     return (
       <div className="tags-sec full-width">
         <ul>
@@ -55,7 +52,7 @@ class TagsSection extends Component {
         </div>
       </div>
     );
-  }
-}
-
-export default TagsSection;
+  };
+  
+  export default  Link;
+  
