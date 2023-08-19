@@ -1,11 +1,11 @@
 import About from "./About";
-import Link from "./Link";
+import Links from "./Links";
 
 const RightSide = () => {
   return (
     <div className="col-lg-3 pd-right-none no-pd">
       <div className="right-sidebar">
-        <About/>
+        <About />
         <div className="widget widget-jobs" style={{ display: "none" }}>
           <div className="sd-title">
             <h3>Top Jobs</h3>
@@ -59,7 +59,7 @@ const RightSide = () => {
             </div>
           </div>
         </div>
-        <Link />
+        <Links />
         <div className="widget widget-jobs" style={{ display: "none" }}>
           <div className="sd-title">
             <h3>Most Viewed This Week</h3>
@@ -95,10 +95,7 @@ const RightSide = () => {
             </div>
           </div>
         </div>
-        <div
-          className="widget suggestions full-width"
-          style={{ display: "none" }}
-        >
+        <div className="widget suggestions full-width" style={{ display: "none" }}>
           <div className="sd-title">
             <h3>Most Viewed People</h3>
             <i className="la la-ellipsis-v"></i>
@@ -165,7 +162,7 @@ const RightSide = () => {
               </span>
             </div>
             <div className="view-more">
-              <a href="./index.html#" title="">
+              <a href="/#" title="">
                 View More
               </a>
             </div>

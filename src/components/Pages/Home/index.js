@@ -1,41 +1,29 @@
-import { Component } from "react";
+import { useState } from "react";
 import Header from "../../Common/Header";
 import ChatBox from "./ChatBox";
 import Main from "./Main";
 
-class Home extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     user: {},
-  //   };
-  // }
-  // componentDidMount() {
-  //   fetch("http://localhost:5000/api/v1/user")
-  //     .then((resp) => resp.json())
-  //     .then((data) => {
-  //       this.setState({ user: data });
-  //     })
-  //     .catch((err) => {
-  //       console.error(err);
-  //     });
-  // }
-
-  render() {
-    const user = this.props.user;
-    // const user = { ...this.props.user };
-    // const { user } = this.props;
-    if (!Object.keys(user).length) {
-      return <div></div>;
-    }
-    return (
-      <div className="wrapper">
-        <Header user={user} />
-        <Main user={user} />
-        <ChatBox />
-      </div>
-    );
+const Home = (props) => {
+  const [isSearched, setIsSearched] = useState(false);
+  const [searchKey, setSearchKey] = useState("");
+  const handleSearch = () => {
+    const searchKey = document.getElementById("searchkey").value;
+    setIsSearched(!isSearched);
+    setSearchKey(searchKey);
+  };
+  const user = props.user;
+  // const user = { ...this.props.user };
+  // const { user } = this.props;
+  if (!Object.keys(user).length) {
+    return <div></div>;
   }
-}
+  return (
+    <div className="wrapper">
+      <Header user={user} handleSearch={handleSearch} />
+      <Main user={user} searchKey={searchKey} />
+      <ChatBox />
+    </div>
+  );
+};
 
 export default Home;
